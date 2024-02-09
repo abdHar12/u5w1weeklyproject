@@ -10,7 +10,7 @@ import java.util.function.Supplier;
 public class Suppliers {
     static Random random = new Random();
     public static Supplier<WorkstationType> getWorkstationType = () -> {
-        switch (random.nextInt(1, 3)) {
+        switch (random.nextInt(1, 3)+1) {
             case 1:
                 return WorkstationType.OPENSPACE;
             case 2:

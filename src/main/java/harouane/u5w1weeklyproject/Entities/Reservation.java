@@ -10,6 +10,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
+@Entity
 @NoArgsConstructor
 public class Reservation {
     @Id
@@ -20,7 +21,7 @@ public class Reservation {
 
     LocalDate date;
 
-/*    @ManyToOne
+  @ManyToOne
     @JoinColumn(name = "user_id")
     public User user;
 
@@ -32,6 +33,6 @@ public class Reservation {
         this.date = date;
         this.user = user;
         this.workstation = workstation;
-    }*/
+    }
 
 }

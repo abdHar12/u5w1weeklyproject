@@ -31,9 +31,9 @@ public class Workstation {
     @JoinColumn(name = "building_id")
 
     Building building;
-
-
     String description;
+
+    @Enumerated(EnumType.STRING)
     WorkstationType workstationType;
     int maxReservations;
 

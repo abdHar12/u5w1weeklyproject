@@ -21,9 +21,9 @@ public class User {
     private UUID username;
     String completeName;
     String email;
-/*
+
     @OneToMany(mappedBy = "user")
-    List<Reservation> reservations;*/
+    List<Reservation> reservations;
     public User(String completeName, String email) {
         this.completeName = completeName;
         this.email = email;

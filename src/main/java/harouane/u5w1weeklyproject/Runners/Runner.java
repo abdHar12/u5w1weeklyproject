@@ -2,6 +2,7 @@ package harouane.u5w1weeklyproject.Runners;
 
 import com.github.javafaker.Faker;
 import harouane.u5w1weeklyproject.DAOs.BuildingService;
+import harouane.u5w1weeklyproject.DAOs.ReservationService;
 import harouane.u5w1weeklyproject.DAOs.UserService;
 import harouane.u5w1weeklyproject.DAOs.WorkstationService;
 import harouane.u5w1weeklyproject.Entities.Building;
@@ -20,6 +21,9 @@ public class Runner implements CommandLineRunner {
     BuildingService buildingService;
     @Autowired
     WorkstationService workstationService;
+    @Autowired
+    ReservationService reservationService;
+
     @Override
     public void run(String... args) throws Exception {
         for (int i = 0; i < 10; i++) {

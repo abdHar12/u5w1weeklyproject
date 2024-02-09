@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 public class WorkstationService {
     @Autowired
     WorkstationDAO workstationDAO;
-
     @Autowired
     BuildingService buildingService;
     public void save(Workstation workstation){
