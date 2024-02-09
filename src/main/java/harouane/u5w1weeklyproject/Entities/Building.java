@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Building {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     @Setter(AccessLevel.NONE)
     private Long id;
