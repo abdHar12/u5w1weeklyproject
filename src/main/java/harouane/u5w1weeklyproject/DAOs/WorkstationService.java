@@ -4,10 +4,12 @@ import com.github.javafaker.Faker;
 
 import harouane.u5w1weeklyproject.Entities.Workstation;
 import harouane.u5w1weeklyproject.Enums.WorkstationType;
+import harouane.u5w1weeklyproject.Exceptions.NotFindAnyElement;
 import harouane.u5w1weeklyproject.Suppliers.Suppliers;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class WorkstationService {
@@ -22,5 +24,11 @@ public class WorkstationService {
         Faker faker=new Faker();
         WorkstationType workstationType = Suppliers.getWorkstationType.get();
         return new Workstation(faker.company().catchPhrase(), workstationType, workstationType.equals(WorkstationType.PRIVATO)? 1 : Suppliers.getRandomNumberFromMinToMax(2, 10), buildingService.getRandomBuilding());
+    }
+
+   public Optional<Workstation> findById(Long id) throws NotFindAnyElement {
+        Optional<Workstation> found = workstationDAO.findById(id);
+        if (found.isPresent()) return found;
+        throw new NotFindAnyElement();
     }
 }
