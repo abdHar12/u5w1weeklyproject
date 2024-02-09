@@ -15,10 +15,10 @@ import java.util.UUID;
 @NoArgsConstructor
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "username", nullable = false)
     @Setter(AccessLevel.NONE)
-    private UUID username;
+    private Long id;
     String completeName;
     String email;
 
