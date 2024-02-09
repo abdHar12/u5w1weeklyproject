@@ -9,6 +9,7 @@ import harouane.u5w1weeklyproject.Suppliers.Suppliers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -30,5 +31,9 @@ public class WorkstationService {
         Optional<Workstation> found = workstationDAO.findById(id);
         if (found.isPresent()) return found;
         throw new NotFindAnyElement();
+    }
+
+    public List<Workstation> findByWorkstationTypeAndCity(WorkstationType type, String city){
+        return workstationDAO.findByWorkstationTypeAndCity(type, city);
     }
 }

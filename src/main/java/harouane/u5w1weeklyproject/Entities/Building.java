@@ -1,10 +1,7 @@
 package harouane.u5w1weeklyproject.Entities;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -12,6 +9,7 @@ import java.util.List;
 @Setter
 @Entity
 @NoArgsConstructor
+@ToString
 public class Building {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

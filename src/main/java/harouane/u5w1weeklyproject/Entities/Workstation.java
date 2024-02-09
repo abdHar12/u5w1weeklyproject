@@ -3,10 +3,7 @@ package harouane.u5w1weeklyproject.Entities;
 
 import harouane.u5w1weeklyproject.Enums.WorkstationType;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -14,6 +11,7 @@ import java.util.List;
 @Setter
 @Entity
 @NoArgsConstructor
+@ToString
 public class Workstation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,8 +27,8 @@ public class Workstation {
 
     @ManyToOne
     @JoinColumn(name = "building_id")
-
     Building building;
+
     String description;
 
     @Enumerated(EnumType.STRING)

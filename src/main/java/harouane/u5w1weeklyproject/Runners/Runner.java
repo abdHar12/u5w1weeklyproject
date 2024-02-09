@@ -9,6 +9,7 @@ import harouane.u5w1weeklyproject.Entities.Building;
 import harouane.u5w1weeklyproject.Entities.Reservation;
 import harouane.u5w1weeklyproject.Entities.User;
 import harouane.u5w1weeklyproject.Entities.Workstation;
+import harouane.u5w1weeklyproject.Enums.WorkstationType;
 import harouane.u5w1weeklyproject.Exceptions.NotFindAnyElement;
 import harouane.u5w1weeklyproject.U5w1weeklyprojectApplication;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -41,7 +43,7 @@ public class Runner implements CommandLineRunner {
         }*/
         Reservation reservation;
         try{
-            Optional<User> user = userService.findById(1L);
+            Optional<User> user = userService.findById(4L);
             Optional<Workstation> workstation = workstationService.findById(4L);
             LocalDate date= LocalDate.parse("2024-02-09");
             if(user.isPresent() && workstation.isPresent()){
@@ -53,5 +55,9 @@ public class Runner implements CommandLineRunner {
         }catch (NotFindAnyElement e){
             System.err.println(e.getMessage());
         }
+        List<Workstation> found= workstationService.findByWorkstationTypeAndCity(WorkstationType.SALA_RIUNIONI, "Sengerstad");
+        if(found.isEmpty()){
+            System.out.println("Non è stato trovato nessun elemento");
+        }else found.forEach(System.out::println);
     }
 }
